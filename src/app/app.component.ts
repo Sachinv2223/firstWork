@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'firstWork';
+  title="FirstWork"
   public heading = 'IT MASTER';
   data = {
     tech1: "Angular",
@@ -34,7 +34,8 @@ export class AppComponent {
     console.log("Good Night")
     this.msg = "Good Night";
   }
-  public count = 0;
+  public count:number = 0;
+  public status="Even";
   addOne(){
     this.count++;
     if((this.count%2)==0){
@@ -47,11 +48,35 @@ export class AppComponent {
   subtractOne(){
     this.count--;
     if((this.count%2)==0){
-      this.status="Even"
+      this.status="Even";
     }
     else{
-      this.status="Odd"
+      this.status="Odd";
     }
   }
-  public status="Even";
+  public myName:string = "";
+  public state:string = "";
+  check(){
+    this.isHidden=false;
+    if((this.count%2)==0){
+      this.state="Even";
+    }
+    else{
+      this.state="Odd";
+    }
+  }
+  public isHidden:boolean=true;
+  clear(){
+    this.isHidden=true;
+    this.count = 0;
+  }
+
+  public fruits = [
+    {"name":"orange","price":200},
+    {"name":"apple","price":160},
+    {"name":"grape","price":120},
+    {"name":"banana","price":80},
+    {"name":"coconut","price":60},
+    {"name":"mango","price":180},
+  ]
 }

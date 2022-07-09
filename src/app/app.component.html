@@ -1,5 +1,5 @@
 <!-- Interpolation and style binding -->
-<h1 style="text-align: center;">Hey Welcome to {{heading}}</h1>
+<!-- <h1 style="text-align: center;">Hey Welcome to {{heading}}</h1>
 <h2 style="text-align: center; color: blue;">Frontend Framework is {{data.tech1}}</h2>
 <h2 style="text-align: center; color: crimson;">Frontend Framework is {{data.tech2}}</h2>
 <h2 style="text-align: center; color: darkgreen;">Frontend Framework is {{data.tech3}}</h2>
@@ -7,10 +7,10 @@
         [style.text-align]="alignFunction()"
         [style.height]="heightFunction()">
     <input type="text" value="{{title}}">
-</div>
+</div> -->
 
 <!-- Event Handling -->
-<h2 [style.text-align]="alignFunction()">Event Handling</h2>
+<!-- <h2 [style.text-align]="alignFunction()">Event Handling</h2>
 <div [style.text-align]="alignFunction()">
     <button (click)="addMorningMsg()">Good Morning</button> 
     &nbsp;&nbsp; 
@@ -24,4 +24,76 @@
     <button (click)="addOne()">ADD</button> 
     &nbsp;&nbsp; 
     <button (click)="subtractOne()">SUBTRACT</button>
+</div> -->
+
+<!-- Two way Data Binding -->
+<!-- <h2 [style.text-align]="alignFunction()" 
+    [style.background-color]="colorFuntion()">Two-Way Data Binding</h2>
+<div [style.text-align]="alignFunction()" [style.height]="heightFunction()">   
+    <input type="text" [(ngModel)]="myName"> My Name is : {{myName}} 
+    <br> <br>
+    My count is : <input type="number" [(ngModel)]="count"> 
+    <br> <br>
+    <button (click)="check()">Check count</button> &nbsp;&nbsp; <button (click)="clear()">Clear count</button> 
+    <h3 [hidden]="isHidden"> Count is {{state}} </h3>
+    <br> <br> <br>
+</div>   -->
+
+<!-- For loop and IF statement -->
+<!-- <h2 [style.text-align]="alignFunction()" 
+    [style.background-color]="colorFuntion()">For Loop and IF statement</h2>
+<div [style.text-align]="alignFunction()" [style.height]="heightFunction()">
+    <table [align]="alignFunction()">
+        <thead>
+            <th>Name</th>
+            <th>Price</th>
+        </thead>
+        <tbody *ngFor="let item of fruits">
+            <tr *ngIf="(item.price<210)">
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<!-- Angular Routiong -->
+<!-- <nav class="navbar navbar-dark bg-primary">
+<div class="main-div">
+    <div class="container-fluid">
+        <h3>Angular Routing</h3> 
+    </div>
+    <div>
+        <ul>
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+        </ul>
+    </div>
 </div>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light">
+    <div class="container-fluid px-0 py-0">
+      <a class="navbar-brand">Angular Routing</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <!-- About Us -->
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#">About Us</a>
+          </li>
+          <!-- Contact Us -->
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#">Contact Us</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
