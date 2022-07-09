@@ -58,20 +58,6 @@
 </div> -->
 
 <!-- Angular Routiong -->
-<!-- <nav class="navbar navbar-dark bg-primary">
-<div class="main-div">
-    <div class="container-fluid">
-        <h3>Angular Routing</h3> 
-    </div>
-    <div>
-        <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
-        </ul>
-    </div>
-</div>
-</nav> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light">
     <div class="container-fluid px-0 py-0">
       <a class="navbar-brand">Angular Routing</a>
@@ -98,3 +84,28 @@
     </div>
   </nav>
   <router-outlet></router-outlet>
+
+  <!-- API Calling -->
+  <div class="text-center">
+  <h2 class="fw-bolder fst-italic">API Calling</h2>
+  </div>
+  <div class="px-5 py-2">
+  <table class="table table-primary table-bordered border-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col">User Id</th>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of postArray">
+        <th scope="row">{{item.userId}}</th>
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>@{{item.body}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
