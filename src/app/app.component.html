@@ -60,7 +60,8 @@
 <!-- Angular Routiong -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light">
     <div class="container-fluid px-0 py-0">
-      <a class="navbar-brand">Angular Routing</a>
+      <img src="\assets\logo\angular.svg" alt="" width="40" height="30" class="d-inline-block align-text-top ms-3">
+      <a class="navbar-brand ps-1">Angular WebApp</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -86,7 +87,7 @@
   <router-outlet></router-outlet>
 
   <!-- API Calling -->
-  <div class="text-center">
+  <!-- <div class="text-center">
   <h2 class="fw-bolder fst-italic">API Calling</h2>
   </div>
   <div class="px-5 py-2">
@@ -108,4 +109,48 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
+
+<!-- Angular Forms (Template Driven)-->
+  <section class="vh-100" style="background-color: #8fb5fb;">
+    <div class="container py-5 w-80">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+           
+            <div class="card-header mb-0 p-4 text-center">
+              <h3 class="fw-bolder mb-0 fst-italic">Angular Forms <br>
+                (Template Driven)</h3>
+            </div>
+
+            <div class="card-body px-4">
+                  
+              <form #form="ngForm" (ngSubmit)="form.valid&&onSubmit()">
+                <div class="mb-3">
+                  <label for="inputName" class="form-label mb-0">Name</label>
+                  <input type="text" class="form-control" id="inputName" name="inputName" required minlength="4" #inputName="ngModel" [(ngModel)]="formData.inputName">
+                  <label for="inputName" *ngIf="form.submitted&&inputName.errors?.['required']" class="form-label mb-0 text-danger fst-italic fw-bolder">Name is required</label>
+                  <label for="inputName" *ngIf="form.submitted&&inputName.errors?.['minlength']" class="form-label mb-0 text-danger fst-italic fw-bolder">Minimum 4 characters are required</label>
+                </div>
+                <div class="mb-3">
+                  <label for="inputEmail" class="form-label mb-0">Email Address</label>
+                  <input type="email" class="form-control" id="inputEmail" name="inputEmail" required #inputEmail="ngModel" ngModel [email]="true" [(ngModel)]="formData.inputEmail">
+                  <label for="inputEmail" *ngIf="form.submitted&&inputEmail.errors?.['required']" class="form-label mb-0 text-danger fst-italic fw-bolder">Email Address is required</label>
+                  <label for="inputEmail" *ngIf="form.submitted&&inputEmail.errors?.['email']" class="form-label mb-0 text-danger fst-italic fw-bolder">Wrong Email Format</label>
+                </div>
+                <div class="mb-3">
+                  <label for="inputPassword" class="form-label mb-0">Password</label>
+                  <input type="password" class="form-control" id="inputPassword" name="inputPassword" required minlength="4" #inputPassword="ngModel" [(ngModel)]="formData.inputPassword" ngModel pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$">
+                  <label for="inputPassword" *ngIf="form.submitted&&inputPassword.errors?.['required']" class="form-label mb-0 text-danger fst-italic fw-bolder">Password is required</label>
+                  <label for="inputPassword" *ngIf="form.submitted&&inputPassword.errors?.['minlength']" class="form-label mb-0 text-danger fst-italic fw-bolder">Minimum 4 characters are required</label>
+                  <label for="inputPassword" *ngIf="form.submitted&&inputPassword.errors?.['pattern']" class="form-label mb-0 text-danger fst-italic fw-bolder">Use Atleast one letter and one number</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary d-grid col-6 mx-auto my-5">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

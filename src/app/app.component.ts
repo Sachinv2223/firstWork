@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiCallService } from './api-call.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -81,12 +82,21 @@ export class AppComponent {
   //   {"name":"mango","price":180},
   // ]
 
-  constructor(private getApi:ApiCallService){}
-  postArray:any = [];
-  ngOnInit() {
-    this.getApi.getPost().subscribe((response) => {
-      this.postArray = response;
-      console.log(this.postArray);
-    })
+  // constructor(private getApi:ApiCallService){}
+  // postArray:any = [];
+  // ngOnInit() {
+  //   this.getApi.getPost().subscribe((response) => {
+  //     this.postArray = response;
+  //     console.log(this.postArray);
+  //   })
+  // }
+
+  formData = {
+    inputName:"",
+    inputEmail:"",
+    inputPassword:""
   }
+  onSubmit(): void {
+    alert(JSON.stringify(this.formData));
+  } 
 }
