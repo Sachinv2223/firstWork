@@ -58,7 +58,7 @@
 </div> -->
 
 <!-- Angular Routiong -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light">
+<nav class="navbar navbar-expand-lg navbar-dark text-light" style="background-color: #009a4d;">
     <div class="container-fluid px-0 py-0">
       <img src="\assets\logo\angular.svg" alt="" width="40" height="30" class="d-inline-block align-text-top ms-3">
       <a class="navbar-brand ps-1">Angular WebApp</a>
@@ -112,7 +112,7 @@
 </div> -->
 
 <!-- Angular Forms (Template Driven)-->
-  <section class="mh-100" style="background-color: #8fb5fb;">
+  <!-- <section class="mh-100" style="background-color: #8fb5fb;">
     <div class="container py-5 w-80">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -153,4 +153,98 @@
         </div>
       </div>
     </div>
+  </section> -->
+
+  <!-- Reactive Forms -->
+  <section class="mh-100" style="background-color: #3aba7a;">
+    <div class="container py-5 w-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-10 col-xl-8">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+           
+            <div class="card-header mb-0 p-4 text-center">
+              <h3 class="fw-bolder mb-0 fst-italic">Reactive Forms</h3>
+            </div>
+
+            <div class="card-body row px-3">
+                  
+              <div class="col col-md-6" style="overflow-y: auto;">
+                <form [formGroup]="jobForm" (ngSubmit)="save()">
+                  <div class="mb-3">
+                    <label for="inputName" class="form-label mb-0">Full Name</label>
+                    <input type="text" class="form-control" id="inputName" name="inputName"  formControlName="inputName" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputEmail" class="form-label mb-0">Email Address</label>
+                    <input type="email" class="form-control" id="inputEmail" name="inputEmail" formControlName="inputEmail" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputPassword" class="form-label mb-0">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" name="inputPassword" formControlName="inputPassword" >
+                  </div>
+
+                  <div formGroupName="moreDetails">
+                  <div class="mb-3">
+                    <label for="inputPhone" class="form-label mb-0">Phone Number</label>
+                    <input type="number" class="form-control" id="inputPhone" name="inputPhone" formControlName="inputPhone" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputDOB" class="form-label mb-0">Date of Birth</label>
+                    <input type="date" class="form-control" id="inputDOB" name="inputDOB" formControlName="inputDOB" >
+                  </div>
+                  </div>
+                  
+                  <div class="mb-3" formArrayName="skills">
+                      <div class="row">
+                        <div class="col col-md-4 offset-md-0 mb-2">
+                          <button type="button" class="btn btn-secondary btn-sm" (click)="addSkill()">Add a Skill</button>
+                        </div>
+                      </div>
+                      <ng-container *ngFor="let skill of skillForm.controls; let i = index">
+                        <div class="row" [formGroupName]="i">
+                          <div class="col col-md-5">
+                            <div class="mb-3">
+                              <label [for]="'inputProgramLanguage'+i" class="form-label mb-0">Program Lang</label>
+                              <input type="text" class="form-control" [id]="'inputProgramLanguage'+i" formControlName="inputProgramLanguage" >
+                            </div>
+                          </div>
+                          <div class="col col-md-5">
+                            <div class="mb-3">
+                              <label [for]="'inputExperienece'+i" class="form-label mb-0">Experience (in Yrs)</label>
+                              <input type="number" class="form-control" [id]="'inputExperienece'+i" formControlName="inputExperienece" >
+                            </div>
+                          </div>
+                          <div class="col col-md-2">
+                            <div class="mb-3  mt-4">
+                              <button type="button" class="btn btn-danger" (click)="removeSkill(i)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash align-middle" viewBox="0 0 16 16">
+                                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+                                  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+                                </svg>
+                              </button>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary d-grid col-8 mx-auto my-5">Submit</button>
+                </form>
+              </div>
+
+              <div class="col col-md-6">
+                <div style="overflow-wrap: break-word;">
+                  <h3 class="text-center">Preview</h3>
+                  {{preview}}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+ 

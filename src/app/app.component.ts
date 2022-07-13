@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiCallService } from './api-call.service';
-import { FormBuilder } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup,FormGroupName, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -91,12 +92,59 @@ export class AppComponent {
   //   })
   // }
 
-  formData = {
-    inputName:"",
-    inputEmail:"",
-    inputPassword:""
+  // formData = {
+  //   inputName:"",
+  //   inputEmail:"",
+  //   inputPassword:""
+  // }
+  // onSubmit(): void {
+  //   alert(JSON.stringify(this.formData));
+  // }
+
+  // FormControl means one html input element
+  // FormGroup means group of FormControl
+
+  constructor(private fb:FormBuilder) {}
+
+  //using FormGroup
+  // jobForm = new FormGroup({
+  //   inputName: new FormControl(""),
+  //   inputEmail: new FormControl(""),
+  //   inputPassword: new FormControl("")
+  // });
+
+  //using FormBuilder
+  jobForm = this.fb.group({
+      inputName:[""],
+      inputEmail:[""],
+      inputPassword:[""],
+      moreDetails: this.fb.group({
+        inputPhone:[""],
+        inputDOB:[""]
+      }),
+      skills:this.fb.array([])
+  })
+
+  get skillForm(){
+    return this.jobForm.get("skills") as FormArray;
   }
-  onSubmit(): void {
-    alert(JSON.stringify(this.formData));
-  } 
+
+  preview:string = "";
+
+  save(){
+    this.preview = JSON.stringify(this.jobForm.value);
+  }
+
+  addSkill(){
+    this.skillForm.push(
+      this.fb.group({
+        inputProgramLanguage: [""],
+        inputExperienece: [0]
+      })
+    )
+  }
+
+  removeSkill(index:number){
+    this.skillForm.removeAt(index);
+  }
 }
