@@ -115,7 +115,7 @@ export class AppComponent {
 
   //using FormBuilder
   jobForm = this.fb.group({
-      inputName:[""],
+      inputName:["",[Validators.required]],
       inputEmail:[""],
       inputPassword:[""],
       moreDetails: this.fb.group({
@@ -124,6 +124,10 @@ export class AppComponent {
       }),
       skills:this.fb.array([])
   })
+
+  get inputName(){
+    return this.jobForm.get("inputName");
+  }
 
   get skillForm(){
     return this.jobForm.get("skills") as FormArray;
@@ -147,4 +151,28 @@ export class AppComponent {
   removeSkill(index:number){
     this.skillForm.removeAt(index);
   }
+
+  sampleSetValue(){
+    this.jobForm.setValue({
+      inputName:"Naveen",
+      inputEmail:"naveen@g.in",
+      inputPassword:"7878nvs",
+      moreDetails:{
+        inputPhone:"8989898989",
+        inputDOB:"2007-12-09"
+      },
+      skills:[]
+    })
+  }
+
+  samplePatchValue(){
+    this.jobForm.patchValue({
+      inputName:"Sachin",
+      inputEmail:"sachi@g.in",
+      moreDetails:{
+        inputPhone:"6767673232"
+      },
+      skills:[]
+  })
+}
 }

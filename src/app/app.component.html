@@ -173,6 +173,11 @@
                   <div class="mb-3">
                     <label for="inputName" class="form-label mb-0">Full Name</label>
                     <input type="text" class="form-control" id="inputName" name="inputName"  formControlName="inputName" >
+                    <div class="alert alert-danger" *ngIf="(inputName?.invalid) && ((inputName?.touched) || (inputName?.dirty))">
+                      <div *ngIf="inputName?.errors?.['required']">
+                        FullName is required
+                      </div>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="inputEmail" class="form-label mb-0">Email Address</label>
@@ -229,7 +234,9 @@
                       </ng-container>
                   </div>
 
-                  <button type="submit" class="btn btn-primary d-grid col-8 mx-auto my-5">Submit</button>
+                  <button type="submit" class="btn btn-primary d-grid col-8 mx-auto mb-3">Submit</button>
+                  <button type="button" class="btn btn-info d-grid col-8 mx-auto mb-3" (click)="samplePatchValue()">Test PatchValues</button>
+                  <button type="button" class="btn btn-warning d-grid col-8 mx-auto mb-5" (click)="sampleSetValue()">Test SetValues</button>
                 </form>
               </div>
 
