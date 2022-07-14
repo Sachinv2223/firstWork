@@ -210,13 +210,13 @@
                           <div class="col col-md-5">
                             <div class="mb-3">
                               <label [for]="'inputProgramLanguage'+i" class="form-label mb-0">Program Lang</label>
-                              <input type="text" class="form-control" [id]="'inputProgramLanguage'+i" formControlName="inputProgramLanguage" >
+                              <input type="text" class="form-control" [id]="'inputProgramLanguage'+i" [formControlName]="'inputProgramLanguage'+i" >
                             </div>
                           </div>
                           <div class="col col-md-5">
                             <div class="mb-3">
                               <label [for]="'inputExperienece'+i" class="form-label mb-0">Experience (in Yrs)</label>
-                              <input type="number" class="form-control" [id]="'inputExperienece'+i" formControlName="inputExperienece" >
+                              <input type="number" class="form-control" [id]="'inputExperienece'+i" [formControlName]="'inputExperienece'+i" >
                             </div>
                           </div>
                           <div class="col col-md-2">
