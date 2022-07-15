@@ -9,13 +9,15 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FavouritesComponent } from './favourites/favourites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactUsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,

@@ -104,7 +104,7 @@ export class AppComponent {
   // FormControl means one html input element
   // FormGroup means group of FormControl
 
-  constructor(private fb:FormBuilder) {}
+  // constructor(private fb:FormBuilder) {}
 
   //using FormGroup
   // jobForm = new FormGroup({
@@ -114,66 +114,66 @@ export class AppComponent {
   // });
 
   //using FormBuilder
-  jobForm = this.fb.group({
-      inputName:["",[Validators.required]],
-      inputEmail:[""],
-      inputPassword:[""],
-      moreDetails: this.fb.group({
-        inputPhone:[""],
-        inputDOB:[""]
-      }),
-      skills:this.fb.array([])
-  })
+//   jobForm = this.fb.group({
+//       inputName:["",[Validators.required]],
+//       inputEmail:[""],
+//       inputPassword:[""],
+//       moreDetails: this.fb.group({
+//         inputPhone:[""],
+//         inputDOB:[""]
+//       }),
+//       skills:this.fb.array([])
+//   })
 
-  get inputName(){
-    return this.jobForm.get("inputName");
-  }
+//   get inputName(){
+//     return this.jobForm.get("inputName");
+//   }
 
-  get skillForm(){
-    return this.jobForm.get("skills") as FormArray;
-  }
+//   get skillForm(){
+//     return this.jobForm.get("skills") as FormArray;
+//   }
 
-  preview:string = "";
+//   preview:string = "";
 
-  save(){
-    this.preview = JSON.stringify(this.jobForm.value);
-  }
+//   save(){
+//     this.preview = JSON.stringify(this.jobForm.value);
+//   }
 
-  addSkill(){
-    this.skillForm.push(
-      this.fb.group({
-        inputProgramLanguage: [""],
-        inputExperienece: [0]
-      })
-    )
-  }
+//   addSkill(){
+//     this.skillForm.push(
+//       this.fb.group({
+//         inputProgramLanguage: [""],
+//         inputExperienece: [0]
+//       })
+//     )
+//   }
 
-  removeSkill(index:number){
-    this.skillForm.removeAt(index);
-  }
+//   removeSkill(index:number){
+//     this.skillForm.removeAt(index);
+//   }
 
-  sampleSetValue(){
-    this.jobForm.setValue({
-      inputName:"Naveen",
-      inputEmail:"naveen@g.in",
-      inputPassword:"7878nvs",
-      moreDetails:{
-        inputPhone:"8989898989",
-        inputDOB:"2007-12-09"
-      },
-      skills:[]
-    })
-  }
+//   sampleSetValue(){
+//     this.jobForm.setValue({
+//       inputName:"Naveen",
+//       inputEmail:"naveen@g.in",
+//       inputPassword:"7878nvs",
+//       moreDetails:{
+//         inputPhone:"8989898989",
+//         inputDOB:"2007-12-09"
+//       },
+//       skills:[]
+//     })
+//   }
 
-  samplePatchValue(){
-    this.jobForm.patchValue({
-      inputName:"Sachin",
-      inputEmail:"sachi@g.in",
-      moreDetails:{
-        inputPhone:"6767673232"
-      },
-      skills:[]
-  })
-}
+//   samplePatchValue(){
+//     this.jobForm.patchValue({
+//       inputName:"Sachin",
+//       inputEmail:"sachi@g.in",
+//       moreDetails:{
+//         inputPhone:"6767673232"
+//       },
+//       skills:[]
+//   })
+// }
 
 }
