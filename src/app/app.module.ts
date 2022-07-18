@@ -12,6 +12,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { Component1Component } from './component1/component1.component';
 import { Component2Component } from './component2/component2.component';
+import { Comp1Component } from './comp1/comp1.component';
+import { Comp2Component } from './comp2/comp2.component';
+import { Comp3Component } from './comp3/comp3.component';
+import { BtnCompComponent } from './btn-comp/btn-comp.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { Component2Component } from './component2/component2.component';
     AboutUsComponent,
     FavouritesComponent,
     Component1Component,
-    Component2Component
+    Component2Component,
+    Comp1Component,
+    Comp2Component,
+    Comp3Component,
+    BtnCompComponent
   ],
   imports: [
     BrowserModule,
