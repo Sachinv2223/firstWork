@@ -2,14 +2,18 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AdminComponent } from './admin/admin.component';
+import { CreateComponent } from './admin/create/create.component';
+import { ViewComponent } from './admin/view/view.component';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { BtnCompComponent } from './btn-comp/btn-comp.component';
+import { ChildGuard } from './child.guard';
 import { Comp1Component } from './comp1/comp1.component';
 import { Comp2Component } from './comp2/comp2.component';
 import { Comp3Component } from './comp3/comp3.component';
 import { Component1Component } from './component1/component1.component';
 import { Component2Component } from './component2/component2.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { DeactGuard } from './deact.guard';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
@@ -26,7 +30,22 @@ const routes: Routes = [
   // { path: 'comp3', component: Comp3Component },
   // { path: 'btn', component: BtnCompComponent },
   { path: 'user', component: UserComponent },
-  { path: 'admin', component: AdminComponent,canActivate:[AuthGuardGuard] }
+  // { path: 'admin', component: AdminComponent,canActivate:[AuthGuardGuard] },
+  // { path: 'admin/create', component: CreateComponent },
+  // { path: 'admin/view', component: ViewComponent }
+  {
+    path: 'admin',
+    canActivate: [AuthGuardGuard],
+    children: [
+      { path: '', component: AdminComponent, canDeactivate: [DeactGuard] },
+      { path: '', canActivateChild: [ChildGuard],
+        children: [
+        { path: 'create', component: CreateComponent },
+        { path: 'view', component: ViewComponent } ]
+      }  
+    ]
+    
+  }
 ];
 
 @NgModule({

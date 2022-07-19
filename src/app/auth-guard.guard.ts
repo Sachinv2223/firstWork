@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuardGuard implements CanActivate {
   a=10;
-  b=20;
+  b=10;
   canActivate() {
     //bussiness logic
     if(this.a == this.b) {

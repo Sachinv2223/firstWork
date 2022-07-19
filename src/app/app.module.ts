@@ -18,6 +18,8 @@ import { Comp3Component } from './comp3/comp3.component';
 import { BtnCompComponent } from './btn-comp/btn-comp.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
+import { CreateComponent } from './admin/create/create.component';
+import { ViewComponent } from './admin/view/view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { UserComponent } from './user/user.component';
     Comp3Component,
     BtnCompComponent,
     AdminComponent,
-    UserComponent
+    UserComponent,
+    CreateComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
