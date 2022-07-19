@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApiCallService } from './api-call.service';
 import { FormArray, FormBuilder, FormControl, FormGroup,FormGroupName, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Observable, observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -175,5 +176,50 @@ export class AppComponent {
 //       skills:[]
 //   })
 // }
+
+activeStatus:any = "now";
+sta:string = " min ago";
+data:any
+
+ngOnInit() {
+  this.data = new Observable((observer) => {
+
+    // setTimeout(() => {
+    //   observer.next('1 min ago')
+    // }, 2000);
+    // setTimeout(() => {
+    //   observer.next('2 min ago')
+    // }, 4000)
+    // setTimeout(() => {
+    //   observer.next('3 min ago')
+    // }, 6000)
+    // setTimeout(() => {
+    //   observer.next('4 min ago')
+    // }, 8000)
+
+    for(let i = 1;i<3;i++){
+
+      setTimeout(() => {
+        observer.next(String(i)+this.sta)
+      }, (i*2000));
+
+    }
+
+    setTimeout(() => {
+      observer.next('3 min ago'),
+      observer.complete();
+    }, 6000);
+
+  // }).subscribe((res)=>{
+  //   this.activeStatus = res;
+  // })
+
+  // or
+  
+  }) 
+    this.data.subscribe((res:any)=>{
+    this.activeStatus = res;
+  })
+}
 
 }
