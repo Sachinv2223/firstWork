@@ -16,6 +16,8 @@ import { Comp1Component } from './comp1/comp1.component';
 import { Comp2Component } from './comp2/comp2.component';
 import { Comp3Component } from './comp3/comp3.component';
 import { BtnCompComponent } from './btn-comp/btn-comp.component';
+import { AdminComponent } from './admin/admin.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { BtnCompComponent } from './btn-comp/btn-comp.component';
     Comp1Component,
     Comp2Component,
     Comp3Component,
-    BtnCompComponent
+    BtnCompComponent,
+    AdminComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
